@@ -23,5 +23,5 @@ require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 
 app.listen(PORT, () => {
-  console.log(`App running on port http://localhost:${PORT}!`);
+  console.log(`App running on port http://localhost:${PORT}`);
 });
