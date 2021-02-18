@@ -16,7 +16,6 @@ module.exports = function (app) {
     db.Workout.find({})
       .then((dbWorkout) => {
         res.json(dbWorkout);
-        console.log(dbWorkout.length);
       })
       .catch((err) => {
         res.status(400).json(err);
