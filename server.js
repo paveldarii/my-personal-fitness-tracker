@@ -1,9 +1,9 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-//require("./seeders/seed"); // Either npm run seed or keep this in here uncommented and it will run the seed
+//require("./seeders/seed"); // or npm run seed
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -18,7 +18,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness_DB", {
   useFindAndModify: false,
 });
 
-//require(apiRoute)(app);
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 
