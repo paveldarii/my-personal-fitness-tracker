@@ -10,6 +10,15 @@ module.exports = function (app) {
         res.status(400).json(err);
       });
   });
+  app.delete("/api/workouts", (req, res) => {
+    db.Workout.deleteMany({})
+      .then((response) => {
+        res.json(response);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  });
   app.get("/api/workouts/range", ({}, res) => {
     db.Workout.find({})
       .then((dbWorkout) => {
