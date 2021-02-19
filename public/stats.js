@@ -20,7 +20,10 @@ function generatePalette() {
 
   return arr;
 }
-
+const clearBtn = document.querySelector("#clear-all");
+clearBtn.addEventListener("click", function (e) {
+  API.deleteAll().then(location.reload());
+});
 function populateChart(data) {
   let durationsSummed = durationSummed(data);
   let durationsUnsummed = durationUnsummed(data);
@@ -45,7 +48,7 @@ function populateChart(data) {
       labels,
       datasets: [
         {
-          label: "Workout Duration In Minutes",
+          label: "Minutes",
           backgroundColor: "red",
           borderColor: "red",
           data: durationsSummed,
@@ -57,6 +60,7 @@ function populateChart(data) {
       responsive: true,
       title: {
         display: true,
+        text: "Duration In Minutes per Workout",
       },
       scales: {
         xAxes: [
@@ -110,7 +114,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Pounds Lifted",
+        text: "Pounds Lifted per Workout",
       },
       scales: {
         yAxes: [
@@ -139,7 +143,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Exercises Performed",
+        text: "Time Performed per Exercise",
       },
     },
   });
@@ -159,7 +163,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Exercises Performed",
+        text: "Pounds Lifted per Exercise",
       },
     },
   });
@@ -187,11 +191,10 @@ function getPounds(data) {
 
   data.forEach((workout) => {
     for (let i = 0; i < workout.exercises.length; i++) {
-      if (workout.exercises[i].type === "resistance") {
-        pounds.push(workout.exercises[i].weight);
-      }
+      pounds.push(workout.exercises[i].weight);
     }
   });
+  console.log(pounds);
   return pounds;
 }
 
@@ -199,15 +202,13 @@ function workoutNames(data) {
   let workouts = [];
 
   data.forEach((workout) => {
-    for (let i = 0; i < workout.exercises.length; i++) {
-      if (workout.exercises[i].type === "resistance") {
-        workouts.push(workout.exercises[i].name);
-      }
-    }
+    workout.exercises.forEach((exercise) => {
+      workouts.push(exercise.name.trim());
+    });
   });
-
   // return de-duplicated array with JavaScript `Set` object
-  return [...new Set(workouts)];
+  //return [...new Set(workouts)];
+  return workouts;
 }
 
 function durationUnsummed(data) {
