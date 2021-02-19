@@ -22,6 +22,15 @@ const API = {
 
     return json;
   },
+  async deleteAll() {
+    const res = await fetch("/api/workouts/", {
+      method: "DELETE",
+    });
+
+    const json = await res.json();
+
+    return json;
+  },
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",
