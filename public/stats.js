@@ -24,7 +24,8 @@ function generatePalette() {
 function populateChart(data) {
   let durationsSummed = durationSummed(data);
   let durationsUnsummed = durationUnsummed(data);
-  let pounds = calculateTotalWeight(data);
+  let totalPounds = calculateTotalWeight(data);
+  let pounds = getPounds(data);
   let workouts = workoutNames(data);
   const colors = generatePalette();
 
@@ -85,7 +86,7 @@ function populateChart(data) {
       datasets: [
         {
           label: "Pounds",
-          data: pounds,
+          data: totalPounds,
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
@@ -181,14 +182,28 @@ function calculateTotalWeight(data) {
 
   return totals;
 }
+function getPounds(data) {
+  let pounds = [];
+
+  data.forEach((workout) => {
+    for (let i = 0; i < workout.exercises.length; i++) {
+      if (workout.exercises[i].type === "resistance") {
+        pounds.push(workout.exercises[i].weight);
+      }
+    }
+  });
+  return pounds;
+}
 
 function workoutNames(data) {
   let workouts = [];
 
   data.forEach((workout) => {
-    workout.exercises.forEach((exercise) => {
-      workouts.push(exercise.name);
-    });
+    for (let i = 0; i < workout.exercises.length; i++) {
+      if (workout.exercises[i].type === "resistance") {
+        workouts.push(workout.exercises[i].name);
+      }
+    }
   });
 
   // return de-duplicated array with JavaScript `Set` object
