@@ -10,6 +10,8 @@ html,
 body,
 .wrapper {
   height: 100%;
+  background: radial-gradient(ellipse at center, #646469 0%, #00000a 98%);
+  background-size: cover;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
 }
 
 nav {
-  background-color: #5793fd;
+  background-color: #383838;
   color: #ffffff;
   height: 80px;
   padding: 10px;
@@ -45,6 +47,7 @@ header {
 }
 
 header h1 {
+  color: white;
   transform: skewX(-2deg);
 }
 
@@ -352,7 +355,9 @@ form > button {
   margin-left: auto;
   margin-right: auto;
 }
-
+#clear-all:hover {
+  opacity: 0.7;
+}
 .d-flex {
   display: flex;
   flex-wrap: wrap;
@@ -434,7 +439,12 @@ form > button {
 .resistance-form {
   padding: 10px;
 }
-
+.col-md-6 {
+  background: rgba(255, 255, 255, 0.8);
+}
+.text-center {
+  color: white;
+}
 @keyframes toast {
   50% {
     opacity: 1;
