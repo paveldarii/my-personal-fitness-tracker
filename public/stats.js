@@ -196,13 +196,13 @@ function workoutNames(data) {
 
 function duration(data) {
   let durations = [];
-
   data.forEach((workout) => {
-    workout.exercises.forEach((exercise) => {
-      durations.push(exercise.duration);
-    });
+    let oneWorkoutDuration = 0;
+    for (let i = 0; i < workout.exercises.length; i++) {
+      oneWorkoutDuration += workout.exercises[i].duration;
+    }
+    durations.push(oneWorkoutDuration);
   });
-
   return durations;
 }
 
