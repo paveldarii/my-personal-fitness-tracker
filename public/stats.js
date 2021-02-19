@@ -22,7 +22,8 @@ function generatePalette() {
 }
 
 function populateChart(data) {
-  let durations = duration(data);
+  let durationsSummed = durationSummed(data);
+  let durationsUnsummed = durationUnsummed(data);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
   const colors = generatePalette();
@@ -46,7 +47,7 @@ function populateChart(data) {
           label: "Workout Duration In Minutes",
           backgroundColor: "red",
           borderColor: "red",
-          data: durations,
+          data: durationsSummed,
           fill: false,
         },
       ],
@@ -130,7 +131,7 @@ function populateChart(data) {
         {
           label: "Exercises Performed",
           backgroundColor: colors,
-          data: durations,
+          data: durationsUnsummed,
         },
       ],
     },
@@ -194,7 +195,18 @@ function workoutNames(data) {
   return [...new Set(workouts)];
 }
 
-function duration(data) {
+function durationUnsummed(data) {
+  let durations = [];
+
+  data.forEach((workout) => {
+    workout.exercises.forEach((exercise) => {
+      durations.push(exercise.duration);
+    });
+  });
+
+  return durations;
+}
+function durationSummed(data) {
   let durations = [];
   data.forEach((workout) => {
     let oneWorkoutDuration = 0;
@@ -203,6 +215,7 @@ function duration(data) {
     }
     durations.push(oneWorkoutDuration);
   });
+
   return durations;
 }
 
