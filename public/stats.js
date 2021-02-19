@@ -22,7 +22,11 @@ function generatePalette() {
 }
 const clearBtn = document.querySelector("#clear-all");
 clearBtn.addEventListener("click", function (e) {
-  API.deleteAll().then(location.reload());
+  let check = confirm("Are you sure you want to clear everything?!");
+  if (check) {
+    API.deleteAll().then(location.reload());
+  }
+  return;
 });
 function populateChart(data) {
   let durationsSummed = durationSummed(data);
