@@ -16,7 +16,9 @@
 
 ## Description
 
-Cool
+Deployed link: [https://fitness-tracker96.herokuapp.com/](https://fitness-tracker96.herokuapp.com/)
+
+This app is amazing.
 ![Index page](screenshots/index.png)
 ![Add exercises](screenshots/add-exercise.png)
 ![Statistics](screenshots/stats.png)
