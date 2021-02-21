@@ -22,7 +22,7 @@ function generatePalette() {
 }
 const clearBtn = document.querySelector("#clear-all");
 clearBtn.addEventListener("click", function (e) {
-  let check = confirm("Are you sure you want to clear everything?!");
+  let check = confirm("Press ok to confirm that you want to clear everything.");
   if (check) {
     API.deleteAll().then(location.reload());
   }
