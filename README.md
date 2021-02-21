@@ -72,13 +72,13 @@ Optional: to add some seeds in your database, enter in your CLI:
 
 ## Usage
 
-Home page displays the last workout statistics, and it might include multiple exercises, the sum of the all weight lifter or sum of all the duration of the exercise.
+Home page displays the last workout statistics, and it might include multiple exercises, the sum of the all weight lifter or sum of all the duration of the exercise.  
 ![Index page](screenshots/index.png)
 
-On add exercise page you will create a new workout or you will continue the last one respectively with what you have chosen on home page. Then, you will chose if the type of exercise is cardio or resistance; next, you will need to add respective data. Lastly, you can push add button, so you will stay on the same page or complete button which will return you to the home page.
+On add exercise page you will create a new workout or you will continue the last one respectively with what you have chosen on home page. Then, you will chose if the type of exercise is cardio or resistance; next, you will need to add respective data. Lastly, you can push add button, so you will stay on the same page or complete button which will return you to the home page.  
 ![Add exercises](screenshots/add-exercise.png)
 
-To get visual representation of all your fitness data, just press Dashboard in navigation bar. To clear everything on the screen just push "Clear All" on the bottom of the page.
+To get visual representation of all your fitness data, just press Dashboard in navigation bar. To clear everything on the screen just push "Clear All" on the bottom of the page.  
 ![Statistics](screenshots/stats.png)
 
 ## Contribution
